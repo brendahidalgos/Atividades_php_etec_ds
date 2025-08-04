@@ -1,6 +1,6 @@
 # 🐘 Atividades em PHP – Curso Técnico em Desenvolvimento de Sistemas EAD
 
-Repositório com atividades desenvolvidas originalmente em **2025**, durante o curso técnico em **Desenvolvimento de Sistemas EAD**.  
+Repositório com atividades desenvolvidas em **2025**, durante o curso técnico em **Desenvolvimento de Sistemas EAD**.  
 Os exercícios focam na prática com **PHP** aplicado ao desenvolvimento web dinâmico, incluindo manipulação de formulários, variáveis, estruturas de controle e integração com HTML.
 
 ## 📚 Conteúdo abordado
