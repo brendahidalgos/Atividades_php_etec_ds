@@ -67,6 +67,9 @@ input[type="reset"]{
 input[type="reset"]:hover{
     background-color: var(--cor-botao-reset-hover); /* Cor de fundo dos botões ao passar o mouse */
 }
+a{
+    color: black;
+}
 .resection{
     background-color: var(--cor-secao); /* Cor de fundo da seção */
     width: 100%;/* Largura total da viewport */

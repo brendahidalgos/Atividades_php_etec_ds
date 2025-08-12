@@ -17,15 +17,18 @@
                 echo "Experiências anteriores: ".$_POST['experiencia']."<br>";
                 echo "<br>";?>
             </p>
-            <h2>Dificuldades no Exercício Proposto</h2>
+            <h2>Dificuldades no Exercício Proposto:</h2>
             <ul class="reul">
-                <li>Frameworks - desenvolvo a maioria das vezes em css puro</li>
-                <li>JavaScript - tudo (tive que pesquisar inclusive),como eu mostro uma frase caso a pessoa não escreva nada em "experiências anteriores"</li>
-                <li>PHP - somente na concatenação e na organização do código, por misturar html e php</li>
+                <li>Frameworks - desenvolvo a maioria das vezes em css puro, não consegui ainda ter prática em lembrar os códigos do W3schools.</li>
+                <li>JavaScript - tudo (tive que pesquisar inclusive),como eu mostro uma frase caso a pessoa não escreva nada em "experiências anteriores".</li>
+                <li>PHP - somente na concatenação e na organização do código, por misturar html e php.</li>
             </ul>            
             <br>
             <input type="button" value="Voltar" name="voltar" id="voltar" onclick="history.back()">
         </div>
     </section>   
+    <footer>
+        <p>&copy; 2025 <a href="https://github.com/brendaHidalgos">Brenda Hidalgo</a></p>
+    </footer>
 </body>
 </html>
