@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="estilos/style.css">
 </head>
 <body>    
-    <h1 class="reh1">Processo de Cadastro</h1>
+    <h1 class="reh1">Cadastro Realizado!</h1>
     <section class="resection">        
         <div class="reform">
             <p class="rep">
