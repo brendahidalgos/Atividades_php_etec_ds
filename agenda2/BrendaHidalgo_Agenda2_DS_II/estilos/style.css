@@ -3,3 +3,37 @@
     padding: 0px;
     margin: 0px;
 }
+body{
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+h1{
+    color: #333;
+}
+p{
+    color: #666;
+}
+#idform{
+    background-color: #8f8585;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+input[type="text"]{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input[type="submit"], input[type="reset"]{
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type="submit"]:hover, input[type="reset"]:hover{
+    background-color: #218838;
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +7,17 @@
     <link rel="stylesheet" href="estilos/style.css">
 </head>
 <body>
+  <div>
+    <h1>Cadastro de Profissionais</h1>
+    <p>Preencha o formulário abaixo para se cadastrar:</p>
   <form action="processaCadastro.php" method="post" id="idform" name="form">
-  <p>Nome: <input type="text" name="Nome" id="idnome" placeholder="Nome completo" required></p>
-  <p>Profissão <input type="text" name="profissao" id="idprofissao" placeholder="Ex: Marceneiro" required></p>
-  <p>Salário pretendido <input type="text" name="salario" id="idsalario" placeholder="R$" required></p>
-  <p>Experiência anterior <input type="text" name="experiencia" id="idexperiencia" placeholder="" required></p>
-  <input type="reset" value="Limpar">
-  <input type="submit" value="Enviar">
+    <p>Nome: <input type="text" name="nome" id="idnome" placeholder="Nome completo" required></p>
+    <p>Profissão <input type="text" name="profissao" id="idprofissao" placeholder="Ex: Marceneiro" required></p>
+    <p>Salário pretendido <input type="text" name="salario" id="idsalario" placeholder="R$" required></p>
+    <p>Experiência anterior <input type="text" name="experiencia" id="idexperiencia" placeholder="" required></p>
+    <input type="reset" value="Limpar">
+    <input type="submit" value="Enviar">
   </form>
+  </div>
 </body>
 </html>
