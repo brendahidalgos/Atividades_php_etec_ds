@@ -41,12 +41,16 @@ form > p {
     text-align: left;/* Alinha o texto à esquerda */
     font-weight: bold;/* Define o peso da fonte como negrito */
 }
-input[type="text"]{
+input[type="text"], textarea{
     width: 95%;/* Largura dos campos de texto */
     padding: 10px;/* Espaçamento interno dos campos de texto */
     margin: 10px 0;/* Margem superior e inferior dos campos de texto */
     border: 1px solid var(--cor-borda);/* Borda dos campos de texto */
     border-radius: 4px;/* Arredondamento dos cantos dos campos de texto */
+}
+textarea{
+    font-family: Arial, sans-serif;
+    font-size: 0.9em;
 }
 input[type="submit"], input[type="reset"]{
     color: white;/* Cor do texto dos botões */

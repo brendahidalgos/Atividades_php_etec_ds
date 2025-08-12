@@ -29,6 +29,7 @@
                 <li>JavaScript - tudo, inclusive só pesquisando.</li>
             </ul>            
             <br>
+            <p>Qual foi o maior desafio ao desenvolver o código.Como decidiu organizar os dados no formulário.</p>
             <input type="button" value="Voltar" name="voltar" id="voltar" onclick="history.back()">
         </div>
     </section>   
