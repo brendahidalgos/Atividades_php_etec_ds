@@ -1,39 +1,51 @@
 @charset "UTF-8";
 *{
-    padding: 0px;
-    margin: 0px;
+    padding: 0px;/* Remove o preenchimento padrão */
+    margin: 0px;/* Remove a margem padrão */
 }
 body{
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif;/* Fonte do corpo */
+    width: 100vw;/* Largura total da viewport */
+    height: 100vh;/* Altura total da viewport */
+    background-color: #ffffffb9;/* Cor de fundo do corpo */
 }
 h1{
-    color: #333;
+    margin-top: 20px;/* Margem superior do título */
+    text-shadow: 1px 1px 2px rgb(252, 0, 109);/* Sombra do texto do título */
 }
-p{
-    color: #666;
+h1, p{
+    color: #000000;/* Cor do texto */
+    text-align: center;/* Alinhamento do texto */
 }
-#idform{
-    background-color: #8f8585;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+form {
+    width: 100%;/* Largura total do formulário */
+    max-width: 400px;/* Limita a largura máxima do formulário */
+    margin: 40px auto;/* Centraliza o formulário na página */
+    background-color: violet;/* Cor de fundo do formulário */
+    padding: 20px;/* Espaçamento interno do formulário */
+    border-radius: 5px;/* Arredondamento dos cantos do formulário */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);/* Sombra do formulário */
+    display: block;/* Exibe o formulário como um bloco */
+}
+form > p {
+    text-align: left;/* Alinha o texto à esquerda */
+    font-weight: bold;/* Define o peso da fonte como negrito */
 }
 input[type="text"]{
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    width: 95%;/* Largura dos campos de texto */
+    padding: 10px;/* Espaçamento interno dos campos de texto */
+    margin: 10px 0;/* Margem superior e inferior dos campos de texto */
+    border: 1px solid #ccc;/* Borda dos campos de texto */
+    border-radius: 4px;/* Arredondamento dos cantos dos campos de texto */
 }
 input[type="submit"], input[type="reset"]{
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
+    background-color: #28a745;/* Cor de fundo dos botões */
+    color: white;/* Cor do texto dos botões */
+    border: none;/* Remove a borda dos botões */
+    padding: 10px 15px;/* Espaçamento interno dos botões */
+    border-radius: 4px;/* Arredondamento dos cantos dos botões */
+    cursor: pointer;/* Muda o cursor para pointer ao passar o mouse sobre os botões */
 }
 input[type="submit"]:hover, input[type="reset"]:hover{
-    background-color: #218838;
+    background-color: #218838;/* Cor de fundo dos botões ao passar o mouse */
 }
