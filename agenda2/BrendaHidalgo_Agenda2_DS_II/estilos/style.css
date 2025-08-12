@@ -68,7 +68,10 @@ input[type="reset"]:hover{
     background-color: var(--cor-botao-reset-hover); /* Cor de fundo dos botões ao passar o mouse */
 }
 a{
-    color: black;
+    color: black; /* Cor do texto dos links */
+}
+footer{
+    margin-bottom: 20px; /* Margem inferior do rodapé */
 }
 .resection{
     background-color: var(--cor-secao); /* Cor de fundo da seção */
@@ -112,6 +115,7 @@ input[type="button"][name="voltar"]:hover{
     background-color: var(--cor-botao-reset-hover); /* Cor de fundo dos botões ao passar o mouse */
 }
 .reform > h2{
+    margin-top: 15px;
     font-size: 1.2em; /* Aumenta o tamanho da fonte do subtítulo */
 }
 .reul > li{
