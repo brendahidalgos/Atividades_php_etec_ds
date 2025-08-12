@@ -49,3 +49,22 @@ input[type="submit"], input[type="reset"]{
 input[type="submit"]:hover, input[type="reset"]:hover{
     background-color: #218838;/* Cor de fundo dos botões ao passar o mouse */
 }
+.resection{
+    background-color: #000000;
+    width: 100vw;/* Largura total da viewport */
+    height: 100vh; /* Ocupa toda a altura da janela */
+    display: flex; /* Usa flexbox para layout */
+    justify-content: center; /* Centraliza na horizontal */
+    align-items: center; /* Centraliza na vertical */
+}
+.reform{
+    width: 90%; /* Use 100% da largura do elemento pai */
+    max-width: 600px; /* Limita a largura máxima */
+    background-color: violet;
+    display: block;/* Exibe o formulário como um bloco */
+    margin: auto;/* Centraliza o formulário na página */
+    padding: 20px; /* Adiciona espaçamento interno */
+    border-radius: 5px; /* Arredonda os cantos do formulário */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Adiciona sombra ao formulário */
+    box-sizing: border-box; /* Inclui padding e borda na largura */
+}
