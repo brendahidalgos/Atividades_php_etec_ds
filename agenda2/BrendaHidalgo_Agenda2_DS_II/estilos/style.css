@@ -27,6 +27,12 @@ h1, p{
     color: var(--cor-texto);/* Cor do texto */
     text-align: center;/* Alinhamento do texto */
 }
+.labelsexo{
+    font-size: 0.8em;
+}
+.sexoutro{
+    background-color: #218838;
+}
 form {
     width: 100%;/* Largura total do formulário */
     max-width: 400px;/* Limita a largura máxima do formulário */
@@ -41,7 +47,7 @@ form > p {
     text-align: left;/* Alinha o texto à esquerda */
     font-weight: bold;/* Define o peso da fonte como negrito */
 }
-input[type="text"], textarea{
+input[type="text"], input[type="email"],  input[type="number"], textarea{
     width: 95%;/* Largura dos campos de texto */
     padding: 10px;/* Espaçamento interno dos campos de texto */
     margin: 10px 0;/* Margem superior e inferior dos campos de texto */
