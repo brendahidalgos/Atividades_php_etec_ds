@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda2 - DS - Brenda Hidalgo</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body class="w3-pale-blue">
+
+    <div class="w3-container w3-center w3-margin-top">
+        <h1 class="w3-xxlarge" style="text-shadow:1px 1px 0 #493838bb">Cadastro</h1>        
+    </div>
+
+    <div class="w3-card-4 w3-white w3-padding" style="max-width: 600px; margin: auto;">
+        <form action="processaCadastro.php" method="post" id="idform" name="form">
+            <p>Preencha o formulário abaixo para se cadastrar:</p>
+            <div class="w3-section">
+                <label for="idnome">Nome:</label>
+                <input class="w3-input w3-border" type="text" name="nome" id="idnome" required minlength="5" maxlength="15" placeholder="Nome Completo" autocomplete="username">
+            </div>
+            <div class="w3-section">
+                <label for="idsexo">Sexo:</label>
+                <div class="w3-row">
+                    <div class="w3-col l6 m6 s6">
+                        <input class="w3-radio" type="radio" name="sexo" id="idsxmas" value="Masculino">
+                        <label for="idsxmas">Masculino</label>
+                    </div>
+                    <div class="w3-col l6 m6 s6">
+                        <input class="w3-radio" type="radio" name="sexo" id="idsxfem" value="Feminino">
+                        <label for="idsxfem">Feminino</label>
+                    </div>
+                </div>
+                <div class="w3-row w3-margin-top">
+                    <div class="w3-col">
+                        <input class="w3-radio" type="radio" name="sexo" id="idsxn" value="Prefiro não informar" checked>
+                        <label for="idsxn">Prefiro não informar</label>
+                    </div>
+                </div>
+                <input class="w3-input w3-border w3-margin-top" type="text" name="sexo_texto" id="idsxoutro" placeholder="Outro">
+            </div>
+            <div class="w3-section">
+                <label for="idmail">E-mail:</label>
+                <input class="w3-input w3-border" type="email" name="email" id="idmail" required autocomplete="email" placeholder="Seu melhor e-mail">
+            </div>
+
+            <div class="w3-section">
+                <label for="idprofissao">Profissão:</label>
+                <input class="w3-input w3-border" type="text" name="profissao" id="idprofissao" placeholder="Ex: Marceneiro" required>
+            </div>
+
+            <div class="w3-section">
+                <label for="idsalario">Salário pretendido:</label>
+                <input class="w3-input w3-border" type="text" name="salario" id="idsalario" placeholder="R$" required>
+            </div>
+            <div class="w3-section">
+                <label for="idexperiencia">Experiências anteriores:</label>
+                <textarea class="w3-input w3-border" name="experiencia" id="idexperiencia" placeholder="Se houver, descreva e separe por vírgulas"></textarea>
+            </div>
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-col l6 m6 s6">
+                    <input class="w3-button w3-red w3-round w3-block" type="reset" value="Limpar">
+                </div>
+                <div class="w3-col l6 m6 s6">
+                    <input class="w3-button w3-green w3-round w3-block" type="submit" value="Enviar">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <footer class="w3-container w3-center w3-margin-top w3-padding-small w3-pale-blue">
+        <p>&copy; 2025 <a href="https://github.com/brendaHidalgos" class="w3-text-blue">Brenda Hidalgo</a></p>
+    </footer>
+
+    <script>
+        document.getElementById('idsxoutro').addEventListener('focus', function () {
+            document.querySelectorAll('input[name="sexo"]').forEach(radio => {
+                radio.checked = false;
+            });
+        });
+    </script>
+</body>
+</html>
