@@ -20,6 +20,7 @@
                 } else {
                     $sexo = $_POST['sexo'];
                 }
+                // Verifica se o campo foi preenchido, senão usa "Sem experiência"
                 $experiencia = trim($_POST['experiencia']);
                 if (empty($experiencia)) {
                     $experiencia = "Sem experiência!";
