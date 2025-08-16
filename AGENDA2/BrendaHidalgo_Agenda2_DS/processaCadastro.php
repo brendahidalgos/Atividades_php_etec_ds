@@ -26,6 +26,7 @@
                     $experiencia = "Sem experiência!";
                 }
                 echo "Seu nome é: ".$_POST['nome']."<br>";
+                echo "Sua idade é: ".$_POST['idade']." anos <br>";
                 echo "Sexo: ".$sexo."<br>";
                 echo "E-mail: ".$_POST['email']."<br>";
                 echo "Profissão: ".$_POST['profissao']."<br>";
@@ -41,11 +42,7 @@
                     <li>Concatenação e na organização do código, por misturar html e php.</li>
                     <li>Como verificar se no campo "sexo" tem marcado um "radio" ou tem algo escrito no campo "text".</li>
                     <li>Como mostrar uma frase automática com "Sem experiência", caso a pessoa não escreva nada em "experiências anteriores".</li>
-                </ul>                
-                <p class="w3-large w3-text-teal">JavaScript</p>
-                <ul class="w3-ul">
-                    <li>Não tenho prática, tive que pesquisar no endereço: <a href="https://www.google.com/search?q=quero+que+no+html+quando+eu+clicar+no+input+text+ele+tira+a+sele%C3%A7%C3%A3o+do+radio+com+javascript&oq=quero+que+no+html+quando+eu+clicar+no+input+text+ele+tira+a+sele%C3%A7%C3%A3o+do+radio+com+javascript&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDQ5NDBqMGoxqAIAsAIA&sourceid=chrome&ie=UTF-8" target="_blank">clique aqui</a>, para tirar a seleção do campo "radio" caso o campo "text" tenha algo escrito.</li>
-                </ul>
+                </ul>  
             </div>
 
             <h2 class="w3-border-bottom w3-padding-small w3-margin-top">Organização dos dados no formulário:</h2>
