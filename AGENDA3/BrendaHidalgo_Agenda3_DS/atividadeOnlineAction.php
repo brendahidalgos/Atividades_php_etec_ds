@@ -1,90 +1,72 @@
-<?php   
-    //se os dados foram inseridos no formulario
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        //dados do formulario
-        $nomeCliente = $_POST['txtNome'];
-        $valorCompra = $_POST['txtValorCompra'];
-        $formaPagamento = $_POST['cmbPag'];
-        //variaveis
-        $desconto = 0;
-        $porcentagemDesconto = 0;
-        //descontos
-        switch ($formaPagamento) {
-            case 'deposito': //deposito com 10%
-                $porcentagemDesconto = 10;
-                break;
-            case 'boleto': //boleto com 8%
-                $porcentagemDesconto = 8;
-                break;
-            case 'cartaoCredito': //crédito sem desconto
-            default:
-                $porcentagemDesconto = 0;
-                break;
-        }
-        //calculos do desconto e valor final
-        $valorDesconto = $valorCompra * ($porcentagemDesconto / 100);
-        $valorAPagar = $valorCompra - $valorDesconto;
-
-    } else {
-        //se a página for acessada diretamente, define valores padrão
-        $nomeCliente = "Aguardando formulário";
-        $valorCompra = 0;
-        $formaPagamento = "desconhecida"; // Mantemos essa variável para uso
-        $porcentagemDesconto = 0;
-        $valorDesconto = 0;
-        $valorAPagar = 0;
-    }
-?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>Atividade Online</title>
+    <title>Resultado da Promoção</title>
 </head>
 <body>
-    <div class="w3-container w3-teal">
-        <h2>PROMOÇÃO DE MÊS DE ANIVERSÁRIO!</h2>
+    <?php
+        //receber os dados do formulário
+        $nomeCliente = $_POST['txtNome'];
+        $valorCompra = $_POST['txtValorCompra'];
+        $formaPagamento = $_POST['cmbPag'];
+        //variáveis
+        $valorComDesconto = 0;
+        $descontoPorcentagem = 0;
+        $valorDoDesconto = 0;
+        
+        if ($formaPagamento == 'deposito') {
+            $descontoPorcentagem = 10;
+        } elseif ($formaPagamento == 'boleto') {
+            $descontoPorcentagem = 8;
+        } else { //se a forma de pagamento não for boleto ou depósito, será cartão de crédito
+            $descontoPorcentagem = 0;
+        }
+        //valor do desconto e o valor final
+        $valorDoDesconto = ($valorCompra * $descontoPorcentagem) / 100;
+        $valorComDesconto = $valorCompra - $valorDoDesconto;       
+    ?>
+    <div class="w3-panel w3-blue w3-round-xlarge w3-card-4 w3-content">
+        <h2 style="text-align: center;">PROMOÇÃO DE MÊS DE ANIVERSÁRIO!</h2>
     </div>
-    <div class="w3-container w3-teal" style="padding:20px; text-align: left;">        
-        <p><?php echo $nomeCliente."!";?></p>
-        <p>Valor da compra: R$ <?php echo number_format($valorCompra, 2, ',', '.'); ?></p>
-        <p>Forma de Pagamento escolhida:
-            <?php
-                //lógica para traduzir a forma de pagamento
-                switch ($formaPagamento) {
-                    case 'deposito':
-                        echo 'Depósito';
-                        break;
-                    case 'boleto':
-                        echo 'Boleto';
-                        break;
-                    case 'cartaoCredito':
+    <div class="w3-panel w3-blue w3-round-xlarge w3-card-4 w3-content" style="padding: 20px; margin-top:20px;">
+        <div class="w3-row">
+            <div class="w3-half">           
+                <p><strong><?php echo $nomeCliente; ?> !</strong></p>
+                <p>Valor da Compra Sem Desconto: R$ <?php echo number_format($valorCompra, 2, ',', '.'); ?></p>
+                <p>Forma de Pagamento escolhida: 
+                <?php 
+                    //troca o valor da variável para um texto mais amigável para o usuário
+                    if ($formaPagamento == 'cartaoCredito') {
                         echo 'Cartão de Crédito';
-                        break;
-                    default:
-                        echo 'Forma de Pagamento desconhecida';
-                        break;
-                }
-            ?>
-        </p>        
-        <p>Desconto de: <?php echo $porcentagemDesconto;?>%</p>
-        <p>Você economizou: R$ <?php echo number_format($valorDesconto, 2, ',', '.'); ?></p>
-        <p>Valor a Pagar: R$ <?php echo "<strong>".number_format($valorAPagar, 2, ',', '.')."</strong>"; ?></p>
-    </div>
-    <!--Comentário:
-        1- Inserir os dados do formulário
-        2- Criar as 2 variaveis, uma de desconto e a outra porcentagem do desconto, essas variais começam com o valor zero
-        3- Aplicar a estrutura de repetição Switch Case para determinar o valor de cada desconto de acordo com a escolha no formulário
-        4- Calcular o desconto sob o valor da compra e subtrair para saber o valor total com desconto
-        5- Se a página foi acessada sem passar para o formulário, exibe valores nulos
-        6- Exibe o nome, valor da compra
-        7- Aplicar aestrutura de decisão Switch Case para identificar qual método de pagamento foi escolhido para mostrar o valor
-        8- Exibe o desconto já calculado anteriormente
-        9- Exibe o valor de desconto
-        10- Exibe o valor final com desconto já aplicado
-    -->
+                    } elseif ($formaPagamento == 'boleto') {
+                        echo 'Boleto';
+                    } else {
+                        echo 'Depósito';
+                    }
+                ?>
+                </p>
+                <p>Desconto de: <?php echo $descontoPorcentagem; ?>%</p>
+                <p>Você economizou: R$ <?php echo number_format($valorDoDesconto, 2, ',', '.'); ?></p>
+                <p>Valor à Pagar: R$ <?php echo number_format($valorComDesconto, 2, ',', '.'); ?></p>
+                <button class="w3-btn w3-blue-grey" onclick="history.back()">Voltar</button>
+            </div>
+        </div>
+    </div>    
+    <div class="w3-panel w3-blue w3-round-xlarge w3-card-4 w3-content">
+        <p>Comentários: </p>
+        <ol start="1">
+            <li>Receber os dados do formulário</li>
+            <li>Definir as variáveis de desconto e valor final</li>
+            <li>Estrutura de decisão usando if, elseif e else</li>
+            <li>Calcular o valor do desconto e o valor final</li>
+            <li>Exibir o resultado na tela</li>            
+        </ol>
+        <p>Obs: O desconto é aplicado apenas para pagamentos à vista.</p>  
+        <p style="text-align: center;">Desenvolvido por <a href="https://github.com/brendahidalgos" target="_blank">Brenda Hidalgo</a></p>
+    </div>         
 </body>
 </html>
