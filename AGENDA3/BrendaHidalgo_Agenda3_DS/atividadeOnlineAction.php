@@ -49,7 +49,7 @@
         <h2>PROMOÇÃO DE MÊS DE ANIVERSÁRIO!</h2>
     </div>
     <div class="w3-container w3-teal" style="padding:20px; text-align: left;">        
-        <p><?php echo $nomeCliente;!?></p>
+        <p><?php echo $nomeCliente."!";?></p>
         <p>Valor da compra: R$ <?php echo number_format($valorCompra, 2, ',', '.'); ?></p>
         <p>Forma de Pagamento escolhida:
             <?php
