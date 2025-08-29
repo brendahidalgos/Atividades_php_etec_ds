@@ -8,27 +8,27 @@
 <title>Tabuada</title>
 </head>
 <body>
-<?php
-echo '<br><a href="exemplo4.html" class="w3-button w3-
-teal">Voltar</a><br>';
-$i = 0;
-$j = 0;
-do{
-echo '<div class="w3-quarter w3-responsive w3-teal">';
-echo '<table class="w3-table-all w3-hoverable w3-text-black">';
-echo '<tr class="w3-teal ">';
-echo '<th class="w3-center"> Tabuada do '.$j.'</th>';
-echo '</tr>';
-$i = 0;
-do{
-echo '<tr>';
-echo '<td class="w3-center">'.$j.' X '.$i.' = '.$j*$i.'</td>';
-echo '</tr>';
-$i++;
-}while($i<=10);
-echo '</table>';
-echo '</div>';
-$j++;}while($j<=10);
-?>
+    <?php
+    echo '<br><a href="exemplo4.html" class="w3-button w3-
+    teal">Voltar</a><br>';
+    $i = 0;
+    $j = 0;
+    do{
+    echo '<div class="w3-quarter w3-responsive w3-teal">';
+    echo '<table class="w3-table-all w3-hoverable w3-text-black">';
+    echo '<tr class="w3-teal ">';
+    echo '<th class="w3-center"> Tabuada do '.$j.'</th>';
+    echo '</tr>';
+    $i = 0;
+    do{
+    echo '<tr>';
+    echo '<td class="w3-center">'.$j.' X '.$i.' = '.$j*$i.'</td>';
+    echo '</tr>';
+    $i++;
+    }while($i<=10);
+    echo '</table>';
+    echo '</div>';
+    $j++;}while($j<=10);
+    ?>
 </body>
 </html>

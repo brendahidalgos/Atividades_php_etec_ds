@@ -8,26 +8,26 @@
 <title>Tabuada</title>
 </head>
 <body>
-<?php
-echo '<br><a href="exemplo3.html" class="w3-button w3-
-teal">Voltar</a><br>';
-$v = $_POST["txtValor"];
-echo '<div class="w3-quarter w3-display-middle w3-responsive w3-
-teal">';
-echo '<table class="w3-table-all w3-hoverable w3-text-black">';
-echo '<tr class="w3-teal ">';
-echo '<th class="w3-center"> Tabuada do '.$v.'</th>';
-echo '</tr>';
-$i = 0;
-while($i<=10)
-{
-echo '<tr>';
-echo '<td class="w3-center">'.$v.' X '.$i.' = '.$v*$i.'</td>';
-echo '</tr>';
-$i++;
-}
-echo '</table>';
-echo '</div>';
-?>
+    <?php
+    echo '<br><a href="exemplo3.html" class="w3-button w3-
+    teal">Voltar</a><br>';
+    $v = $_POST["txtValor"];
+    echo '<div class="w3-quarter w3-display-middle w3-responsive w3-
+    teal">';
+    echo '<table class="w3-table-all w3-hoverable w3-text-black">';
+    echo '<tr class="w3-teal ">';
+    echo '<th class="w3-center"> Tabuada do '.$v.'</th>';
+    echo '</tr>';
+    $i = 0;
+    while($i<=10)
+    {
+    echo '<tr>';
+    echo '<td class="w3-center">'.$v.' X '.$i.' = '.$v*$i.'</td>';
+    echo '</tr>';
+    $i++;
+    }
+    echo '</table>';
+    echo '</div>';
+    ?>
 </body>
 </html>
