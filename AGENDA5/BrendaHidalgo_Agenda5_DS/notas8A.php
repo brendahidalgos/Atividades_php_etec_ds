@@ -8,16 +8,14 @@ $turma8A = [
     ['nome' => 'Roberta', 'notas' => [3.0, 7.0, 5.5, 6.5]],
 ];
 $alunoscommedia = [];/*o array $alunoscommedia é inicializado como vazio para armazenar os dados processados*/
-foreach ($turma8A as $aluno) {
-  
+foreach ($turma8A as $aluno) {    
     $media = array_sum($aluno['notas']) / count($aluno['notas']); /*array_sum() soma todas as notas do aluno,
 count() conta o total de notas*/        
     $aluno['media'] = number_format($media, 1, '.', '');/*number_format() deixa com uma casa decimal*/     
-    $alunosComMedia[] = $aluno; /*$alunosComMedia junta o aluno com a média*/
+    $alunoscommedia[] = $aluno; /*$alunosComMedia junta o aluno com a média*/
 }
-/*usort() ordena o array $alunosComMedia de forma personalizada, function($a, $b) compara as médias de dois alunos, <=> é usado para ordenar de forma decrescente (do maior para o menor), comparando `$b` com `$a`*/
-usort($alunosComMedia, function($a, $b) {
-    return $b['media'] <=> $a['media'];
+usort($alunoscommedia, function($menor, $maior) {
+    return $maior['media'] <=> $menor['media'];
 });
 ?>
 <!DOCTYPE html>
@@ -44,21 +42,21 @@ usort($alunosComMedia, function($a, $b) {
             <tbody>
                 <?php
                 $soma_geral = 0;               
-                $total_alunos = count($alunosComMedia);/*conta o número total de alunos*/
-                foreach ($alunosComMedia as $aluno) {
+                $total_alunos = count($alunoscommedia);/*conta o número total de alunos*/
+                foreach ($alunoscommedia as $estudante) {
                     echo '<tr>';             
-                    echo '<td>' . htmlspecialchars($aluno['nome']) . '</td>';  
-                    foreach ($aluno['notas'] as $nota) {/*percorre as notas de cada aluno*/                        
+                    echo '<td>' . htmlspecialchars($estudante['nome']) . '</td>'; /*extrai o nome do aluno*/
+                    foreach ($estudante['notas'] as $nota) {/*percorre as notas de cada aluno*/                        
                         echo '<td>' . number_format($nota, 1, '.', '') . '</td>';
                     }                    
-                    /*formatando com o css, se a média for >=6, a classe é media-aprovado(para verde), caso contrário, a classe é media-reprovado (para vermelho)*/
-                    $classe_media = ($aluno['media'] >= 6.0) ? 'media-aprovado' : 'media-reprovado';                    
-                    echo '<td class="' . $classe_media . '">' . $aluno['media'] . '</td>';             
+                    /*formatando com o css, se a média for >=6, a classe é media-aprovado para verde, senão media-reprovado para vermelho*/
+                    $classe_media = ($estudante['media'] >= 6.0) ? 'media-aprovado' : 'media-reprovado';                     
+                    echo '<td class="' . $classe_media . '">' . $estudante['media'] . '</td>';             
                     echo '</tr>';
-                    /*soma a média do aluno à variável $soma_geral para o cálculo da média da turma*/
-                    $soma_geral += $aluno['media'];
+                    /*soma a média do aluno a variável $soma_geral para o cálculo da média da turma*/
+                    $soma_geral = $soma_geral + $estudante['media'];
                 }                
-                /*se o total de alunos é >0 para evitar divisão por zero*/
+                /*se o total de alunos é > 0 para evitar divisão por zero*/
                 if ($total_alunos > 0) {
                     /*calcula a média geral da turma*/
                     $media_geral = $soma_geral / $total_alunos;                    
@@ -69,6 +67,10 @@ usort($alunosComMedia, function($a, $b) {
                     echo '</tr>';
                 }
                 ?>
+            <!-- COMENTÁRIO:
+            No primeiro foreach ele referencia o array $alunoscommedia, que contém os dados dos alunos. Após, soma as notas de cada aluno e calcula a média dividindo a soma pela quantidade de notas. No final, formata cada média com uma casa decimal e armazena na variavel vazia $alunoscommedia.
+            No segundo foreach, ele percorre o array $alunoscommedia, exibindo os dados de cada aluno em uma linha da tabela. Dentro desse loop, há outro foreach que percorre as notas de cada aluno, exibindo-as em colunas separadas.        
+            --> 
             </tbody>
         </table>
     </div>
