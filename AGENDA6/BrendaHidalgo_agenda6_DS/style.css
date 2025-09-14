@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #2e8b57; /* Um tom de verde para um visual mais agradável */
+    background-color: #2e678b; 
     color: #333;
     margin: 0;
     padding: 0;
@@ -9,7 +9,6 @@ body {
     align-items: center;
     min-height: 100vh;
 }
-
 .container {
     background-color: #ffffff;
     padding: 30px;
@@ -19,13 +18,11 @@ body {
     max-width: 900px;
     box-sizing: border-box;
 }
-
 h1 {
     text-align: center;
-    color: #2e8b57;
+    color: #2e678b;
     margin-bottom: 20px;
 }
-
 .controls {
     display: flex;
     justify-content: space-between;
@@ -34,12 +31,10 @@ h1 {
     flex-wrap: wrap;
     gap: 15px;
 }
-
 .search-form {
     display: flex;
     gap: 10px;
 }
-
 .search-form input[type="text"] {
     padding: 10px;
     border: 1px solid #ccc;
@@ -47,7 +42,6 @@ h1 {
     font-size: 16px;
     width: 250px;
 }
-
 .search-form button, .ranking-link a {
     padding: 10px 15px;
     border: none;
@@ -58,27 +52,22 @@ h1 {
     text-align: center;
     transition: background-color 0.3s ease;
 }
-
 .search-form button {
-    background-color: #4CAF50; /* Verde */
+    background-color: #008CBA;
     color: white;
 }
-
 .search-form button:hover {
     background-color: #45a049;
 }
-
 .ranking-link a {
-    background-color: #008CBA; /* Azul */
+    background-color: #008CBA; 
     color: white;
     display: inline-block;
 }
-
 .ranking-link a:hover {
     background-color: #007bb5;
 }
-
-/* Estilização para o novo botão de voltar */
+/*botão de voltar */
 .back-link a {
     padding: 10px 15px;
     border: none;
@@ -87,37 +76,31 @@ h1 {
     cursor: pointer;
     text-decoration: none;
     text-align: center;
-    background-color: #555; /* Cor cinza para o botão */
+    background-color: #555;
     color: white;
     transition: background-color 0.3s ease;
     display: inline-block;
 }
-
 .back-link a:hover {
     background-color: #333;
 }
-
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
-
 th, td {
     border: 1px solid #ddd;
     padding: 12px;
     text-align: left;
 }
-
 thead {
-    background-color: #2e8b57;
+    background-color: #8d8f93;
     color: white;
 }
-
 tbody tr:nth-child(even) {
     background-color: #f2f2f2;
 }
-
 tbody tr:hover {
     background-color: #e6e6e6;
 }

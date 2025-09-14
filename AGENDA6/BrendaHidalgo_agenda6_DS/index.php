@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alunos</title>
-    <link rel="stylesheet" href="style.css"> </head>
+    <link rel="stylesheet" href="style.css"> 
+</head>
 <body>
     <?php
     $servername = "localhost";//tipo de conexão
     $username = "root"; //nome
     $password = "usbw"; //senha
-    $dbname = "pwii"; //nome do banco
+    $nomedobanco = "pwii"; //nome do banco
     //criando conexao com as informações a cima
-    $conex = new mysqli($servername, $username, $password, $dbname);
+    $conex = new mysqli($servername, $username, $password, $nomedobanco);
     //se a conexao falhar, exibe a mensagem de erro
     if ($conex->connect_error) { //verifica se houve erro na conexão
         die("Conexão falhou: " . $conex->connect_error); //mensagem de erro
     }
-
     //se houver uma busca pelo nome
     $search_query = "";//inicializa a variável de busca vazia
     if (isset($_GET['search']) && !empty($_GET['search'])) { //verifica se a busca existe e não está vazio
@@ -32,22 +32,27 @@
     <div class="container">
         <h1>Alunos Concluintes</h1>
         <div class="controls">
-            <form action="" method="GET" class="search-form"><!--formulário para buscar o nome-->
-                <input type="text" name="search" placeholder="Buscar por nome..." value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>"><!--campo de entrada para o termo de busca, preservando o valor atual-->
-                <button type="submit">Buscar</button><!--botão para enviar o formulário-->
-            </form>
-            <div class="ranking-link"><!--link para ordenar por ranking-->
-                <a href="?sort=ranking<?php echo isset($_GET['search']) ? '&search=' . htmlspecialchars($_GET['search']) : ''; ?>">Exibir Ranking</a><!--este link mantém o termo de busca atual, se houver-->
-            </div>
+            <form action="" method="GET" class="search-form">
+                <input type="text" name="search" placeholder="Buscar por nome..." value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+                <button type="submit">Buscar</button>
+            </form>            
             <?php 
-            //se estiver em modo de busca, exibe o link para voltar à tabela completa
-            if (isset($_GET['search']) && !empty($_GET['search'])) { //verifica se a busca existe e não está vazio
-                echo '<div class="back-link">'; //div para o link de voltar
-                echo '<a href="index.php">Voltar para a Tabela Completa</a>'; //link para voltar à tabela completa
+            //somente exibe o botão de ranking se não houver uma busca por nome
+            if (!isset($_GET['search']) || empty($_GET['search'])) {
+                echo '<div class="ranking-link">';
+                echo '<a href="?sort=ranking">Exibir Ranking</a>';
+                echo '</div>';
+            }
+            ?>            
+            <?php 
+            //se estiver em modo de ranking ou busca, exibe o link para voltar à tabela completa
+            if (isset($_GET['sort']) || isset($_GET['search'])) {
+                echo '<div class="back-link">';
+                echo '<a href="index.php">Voltar para a Tabela Completa</a>';
                 echo '</div>';
             }
             ?>
-        </div>        
+        </div>     
         <?php
         if ($result->num_rows > 0) { //verifica se há resultados na consulta    
             //cria um array para armazenar os dados e calcular a média
@@ -56,14 +61,12 @@
                 $row['media'] = ($row['nota1'] + $row['nota2'] + $row['nota3'] + $row['nota4']) / 4; //calcula a média das notas
                 $students[] = $row; //adiciona a linha ao array de alunos
             }
-
             //se o ranking for solicitado, ordena o array pelo campo 'media' em ordem decrescente
             if (isset($_GET['sort']) && $_GET['sort'] == 'ranking') { //verifica se ranking foi solicitado
                 usort($students, function($a, $b) { //função de comparação para ordenar
                     return $b['media'] <=> $a['media']; //ordena em ordem decrescente pela média
                 });
             }
-
             //inicia a tabela HTML
             echo "<table>"; //inicia a tabela
             echo "<thead>"; //inicia o cabeçalho da tabela
@@ -91,7 +94,6 @@
                 echo "<td>" . number_format($student['media'], 2) . "</td>"; //exibe a média formatada com 2 casas decimais
                 echo "</tr>"; //fecha a linha
             }
-
             echo "</tbody>"; //fecha o corpo da tabela
             echo "</table>"; //fecha a tabela
         } else { //se não houver resultados
